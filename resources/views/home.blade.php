@@ -17,7 +17,9 @@
 
 <body>
 
-    <h1>Ciao</h1>
+    @foreach ($pizzas as $pizza)
+        {{ $pizza ->name }}
+    @endforeach
 
 </body>
 
