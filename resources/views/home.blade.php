@@ -1,24 +1,26 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
+@section('content')
+        
+    <div class="container mt-4">
+        <h1 class="text-center text-uppercase">Pizze</h1>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
-
-    
-
-</body>
-
-</html>
+        <div class="row">
+            @foreach ($pizzas as $pizza)
+            <div class="col-3 p-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $pizza->name }}</h5>
+                        <p class="card-text">{{ $pizza->description }}</p>
+                        <p class="card-text">Price: ${{ $pizza->price }}</p>
+                        @if ($pizza->vegetarian)
+                            <p class="card-text">Vegetarian</p>
+                        @else
+                            <p class="card-text">Non-Vegetarian</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    @endsection
