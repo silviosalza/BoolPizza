@@ -25,6 +25,9 @@
                 </div>
             </div>
             @endforeach
+            <a class="btn btn-secondary" href="{{ route('pizzas.create') }}">
+                Info
+            </a>
         </div>
     </div>
     @endsection
