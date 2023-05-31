@@ -18,6 +18,9 @@
                         @else
                             <p class="card-text">Non-Vegetarian</p>
                         @endif
+                        <a class="btn btn-success" href="{{ route('pizzas.show', $pizza->id) }}">
+                            Info
+                        </a>
                     </div>
                 </div>
             </div>
