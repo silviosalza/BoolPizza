@@ -22,6 +22,9 @@
                         <a class="btn btn-success" href="{{ route('pizzas.show', $pizza->id) }}">
                             Info
                         </a>
+                        <a class="btn btn-warning" href="{{ route('pizzas.edit', $pizza->id) }}">
+                            Edit
+                        </a>
                     </div>
                 </div>
             </div>
