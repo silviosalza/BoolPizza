@@ -38,7 +38,12 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $pizza = new Pizza();
+        $pizza->fill($data); 
+        $pizza->save();
+
+        return redirect()->route('pizzas.index');
     }
 
     /**

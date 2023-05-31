@@ -1,10 +1,11 @@
 
 @extends('layouts.app')
 @section('content')
-        
-    <div class="container mt-4">
-        <h1 class="text-center text-uppercase">Pizze</h1>
-        <a href="{{ route('home') }}" class="btn btn-primary">Homepage</a>   
+
+<div class="container mt-4">
+    <h1 class="text-center text-uppercase">Pizze</h1>
+    <a href="{{ route('home') }}" class="btn btn-primary">Homepage</a>   
+    <a href="{{ route('pizzas.create') }}" class="btn btn-secondary">Aggiungi una nuova Pizza</a>
     <div class="row">
             @foreach ($pizzas as $pizza)
             <div class="col-3 p-4">
@@ -25,9 +26,6 @@
                 </div>
             </div>
             @endforeach
-            <a class="btn btn-secondary" href="{{ route('pizzas.create') }}">
-                Info
-            </a>
         </div>
     </div>
     @endsection
