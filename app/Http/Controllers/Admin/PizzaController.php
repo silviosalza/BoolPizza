@@ -40,7 +40,7 @@ class PizzaController extends Controller
     {
         $data = $request->all();
         $pizza = new Pizza();
-        $pizza->fill($data); 
+        $pizza->fill($data);
         $pizza->save();
 
         return redirect()->route('pizzas.index');
@@ -83,7 +83,6 @@ class PizzaController extends Controller
         $pizza = Pizza::findOrFail($id);
         $pizza->update($data);
         return redirect()->route('pizzas.index');
-
     }
 
     /**
@@ -94,6 +93,8 @@ class PizzaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pizza = Pizza::findOrFail($id);
+        $pizza->delete();
+        return redirect()->route('pizzas.index');
     }
 }
