@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a class="btn btn-primary" href="{{ route('pizzas.index') }}">Menu</a>
+        
         
         <form action="{{ route('pizzas.update', $pizza->id) }}" method="POST">
             @method('PUT')
@@ -29,8 +29,8 @@
                 <label for="description" class="form-label">Descrizione:</label>
                 <input value="{{ $pizza->description }}" type="textarea" class="form-control" id="description" name="description">
             </div>
-
-            <button type="submit" class="btn btn-primary">Invia</button>
+            <a class="btn btn-primary" href="{{ route('pizzas.index') }}">Menu</a>
+            <button type="submit" class="btn btn-warning">Invia</button>
         </form>
     </div>
 @endsection

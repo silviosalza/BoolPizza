@@ -1,33 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <a class="btn btn-primary" href="{{ route('pizzas.index') }}">Menu</a>
-        <h2>Informazioni Pizza {{ $pizza->name }}</h2>
+    <div class="container-fluid pizzas_info text-center mt-4">
+        <h2 class="mb-4 ">INFO: Pizza {{ $pizza->name }}</h2>
         <ul class="list-group">
-            <li class="list-group-item">
-                <strong>Prezzo: </strong> {{ $pizza->price }}
-            </li>
-            <li>
+            <li class="list-group-item list-group-item-primary"> Prezzo: {{ $pizza->price }}</li>
+            <li class="list-group-item list-group-item-secondary">
                 @if ($pizza->vegetarian)
-                <p class="card-text">Vegetarian</p>
-            @else
-                <p class="card-text">Non-Vegetarian</p>
-            @endif
-            </li>
-            <li>
-                {{ $pizza->description }} 
-            </li>
+                    <p class="card-text" >Vegetarian</p>
+                @else
+                    <p class="card-text" >Non-Vegetarian</p>
+                @endif
+
+            <li class="list-group-item list-group-item-success">{{ $pizza->description }} </li>
+
         </ul>
+        <a class="btn btn-primary mt-4" href="{{ route('pizzas.index') }}">Menu</a>
     </div>
-    {{-- <div>
-        <a class="btn btn-warning" href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
-        <form class="d-inline-block" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
-            @method('DELETE')
-            @csrf
-            <button type="submit" class="btn btn-danger">
-                Elimina
-            </button>
-        </form>
-    </div> --}}
 @endsection
