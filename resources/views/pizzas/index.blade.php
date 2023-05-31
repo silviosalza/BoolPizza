@@ -4,8 +4,8 @@
         
     <div class="container mt-4">
         <h1 class="text-center text-uppercase">Pizze</h1>
-
-        <div class="row">
+        <a href="{{ route('home') }}" class="btn btn-primary">Homepage</a>   
+    <div class="row">
             @foreach ($pizzas as $pizza)
             <div class="col-3 p-4">
                 <div class="card">
