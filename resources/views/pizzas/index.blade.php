@@ -8,14 +8,15 @@
             @foreach ($pizzas as $pizza)
                 <div class="col-3 p-4">
                     <div class="card">
+                       
                         <div class="card-body">
-                            <h5 class="card-title">{{ $pizza->name }}</h5>
+                            <h5 class="card-title text-uppercase">{{ $pizza->name }}</h5>
                             <p class="card-text">{{ $pizza->description }}</p>
                             <p class="card-text">Price: ${{ $pizza->price }}</p>
                             @if ($pizza->vegetarian)
-                                <p class="card-text">Vegetarian</p>
+                                <p class="card-text vegetarian">Vegetarian</p>
                             @else
-                                <p class="card-text">Non-Vegetarian</p>
+                                <p class="card-text ">Non-Vegetarian</p>
                             @endif
                             <a class="btn btn-success" href="{{ route('pizzas.show', $pizza->id) }}">
                                 Info

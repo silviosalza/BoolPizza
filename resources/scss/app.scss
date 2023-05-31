@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 .homepage {
     background: url(/storage/img/pizza_bg.jpg);
@@ -10,38 +10,44 @@
         height: 300px;
         width: 300px;
         padding: 1rem;
-       background: url(/storage/img/rounded_pizza.png);
-       background-position: center  ;
-        .title{
+        background: url(/storage/img/rounded_pizza.png);
+        background-position: center;
+        .title {
             margin-top: 4rem;
             color: red;
-            font-style: italic  ;
+            font-style: italic;
         }
     }
 }
-.card{
+
+.card {
     border-radius: 50px;
     background-image: url(/storage/img/pizza_bg.jpg);
-
     background-position: center;
     background-size: cover;
-    font-weight: 900;
+    font-weight: bolder;
     color: whitesmoke;
     text-align: center;
-    opacity: 0.9;
-   
+
+    h5 {
+        color: red;
+    }
+
+    .vegetarian {
+        color: green !important;
+    }
 }
 
-#vegetarian{
-    font-size: 20px;
-}
-
-.pizzas_info{
-
-    width:400px;
-   
-    border: 5px solid;
-    padding:1rem;
- 
-  border-image:linear-gradient( red 20%, green 55%, red 25%,red 55%, green 45%, ) 2;
+.pizzas_info {
+    width: 400px;
+    border: 10px solid;
+    padding: 1rem;
+    border-image: linear-gradient(
+            red 20%,
+            green 55%,
+            red 25%,
+            red 55%,
+            green 45%
+        )
+        2;
 }
