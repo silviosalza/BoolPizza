@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<h1 class="text-center">Modifica la tua pizza</h1>
+
     <div class="container">
         
         
@@ -31,7 +33,13 @@
             </div>
 
 
-                    
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                @foreach ($ingredients as $ingredient)
+                    <input type="checkbox" class="btn-check" id="{{ $ingredient->name }}" autocomplete="off" name="ingredient_id[]" value="{{ $ingredient->id }}">
+                    <label class="btn btn-outline-primary" for="{{ $ingredient->name }}">{{ $ingredient->name }}</label>
+                @endforeach
+            </div>
+            
 
 
 

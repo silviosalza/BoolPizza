@@ -43,17 +43,17 @@ class PizzaController extends Controller
     {
         $data = $request->all();
         $data['slug'] = Str::slug($data['name']);
-        
+
         $pizza = Pizza::create($data);
-        
+
         if ($request->has('ingredient_id')) {
             $pizza->ingredients()->attach($request->ingredient_id);
         }
-      
-        
+
+
         return redirect()->route('pizzas.index');
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -76,7 +76,8 @@ class PizzaController extends Controller
     public function edit($id)
     {
         $pizza = Pizza::findOrFail($id);
-        return view('pizzas.edit', compact('pizza'));
+        $ingredients = Ingredient::all();
+        return view('pizzas.edit', compact('pizza', 'ingredients'));
     }
 
     /**
@@ -91,6 +92,13 @@ class PizzaController extends Controller
         $data = $request->all();
         $pizza = Pizza::findOrFail($id);
         $pizza->update($data);
+        if ($request->has('ingredient_id')) {
+            $pizza->ingredients()->sync($data['ingredient_id']);
+        } else {
+            $pizza->ingredients()->detach();
+        }
+
+
         return redirect()->route('pizzas.index');
     }
 
