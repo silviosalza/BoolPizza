@@ -14,6 +14,16 @@
 
             <li class="list-group-item list-group-item-success">{{ $pizza->description }} </li>
 
+            <li class="list-group-item list-group-item-success">
+                @forelse ($pizza->ingredients as $ingredient )
+                   {{$ingredient->name}} {{$loop->last ? '' : ','}}
+                @empty
+                    <span>Nessun ingrediente</span>
+                @endforelse
+
+            </li>
+               
+
         </ul>
         <a class="btn btn-primary mt-4" href="{{ route('pizzas.index') }}">Menu</a>
     </div>

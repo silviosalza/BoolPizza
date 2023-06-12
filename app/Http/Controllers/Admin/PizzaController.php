@@ -6,6 +6,7 @@ use App\Models\Pizza;
 use App\Models\Ingredient;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 class PizzaController extends Controller
@@ -28,9 +29,8 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        $ingredients=Ingredient::all();
+        $ingredients = Ingredient::all();
         return view('pizzas.create', compact('ingredients'));
-        
     }
 
     /**
@@ -42,12 +42,18 @@ class PizzaController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $pizza = new Pizza();
-        $pizza->fill($data);
-        $pizza->save();
-
+        $data['slug'] = Str::slug($data['name']);
+        
+        $pizza = Pizza::create($data);
+        
+        if ($request->has('ingredient_id')) {
+            $pizza->ingredients()->attach($request->ingredient_id);
+        }
+      
+        
         return redirect()->route('pizzas.index');
     }
+    
 
     /**
      * Display the specified resource.
