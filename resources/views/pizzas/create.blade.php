@@ -28,6 +28,24 @@
                 <input type="textarea" class="form-control" id="description" name="description">
             </div>
             <a class="btn btn-success" href="{{ route('pizzas.index') }}">Menu</a>
+
+
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+
+                @foreach ($ingredients as $ingredient)
+                <input type="checkbox" class="btn-check" id="{{$ingredient->name}}" autocomplete="off" name= "ingredient_id[]" value="{{$ingredient->id}}">
+                <label class="btn btn-outline-primary" for="{{$ingredient->name}}"> {{$ingredient->name}}</label>
+                @endforeach
+    
+            </div>
+
+
+
+
+
+
+
+
             <button type="submit" class="btn btn-primary">Invia</button>
         </form>
     </div>

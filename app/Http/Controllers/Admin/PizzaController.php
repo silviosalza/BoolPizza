@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Pizza;
+use App\Models\Ingredient;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,9 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        return view('pizzas.create');
+        $ingredients=Ingredient::all();
+        return view('pizzas.create', compact('ingredients'));
+        
     }
 
     /**

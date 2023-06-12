@@ -10,16 +10,16 @@
         <div class="row">
             @foreach ($pizzas as $pizza)
                 <div class="col-3 p-4">
-                    <div class="card">
+                    <div class="card mt-4">
 
                         <div class="card-body">
-                            <h5 class="card-title text-uppercase">{{ $pizza->name }}</h5>
-                            <p class="card-text">{{ $pizza->description }}</p>
-                            <p class="card-text">Price: ${{ $pizza->price }}</p>
+                            <h5 class="card-title text-uppercase mt-4 mb-2">{{ $pizza->name }}</h5>
+                            <p class="card-text mb-4 mt-4">{{ $pizza->description }}</p>
+                            <p class="card-text mb-4">Price: ${{ $pizza->price }}</p>
                             @if ($pizza->vegetarian)
-                                <p class="card-text vegetarian">Vegetarian</p>
+                                <p class="card-text vegetarian mb-4">Vegetarian</p>
                             @else
-                                <p class="card-text ">Non-Vegetarian</p>
+                                <p class="card-text mb-4 ">Non-Vegetarian</p>
                             @endif
                             <a class="btn btn-success" href="{{ route('pizzas.show', $pizza->id) }}">
                                 Info

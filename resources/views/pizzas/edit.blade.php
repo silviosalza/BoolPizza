@@ -29,6 +29,12 @@
                 <label for="description" class="form-label">Descrizione:</label>
                 <input value="{{ $pizza->description }}" type="textarea" class="form-control" id="description" name="description">
             </div>
+
+
+                    
+
+
+
             <a class="btn btn-primary" href="{{ route('pizzas.index') }}">Menu</a>
             <button type="submit" class="btn btn-warning">Invia</button>
         </form>

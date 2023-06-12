@@ -9,7 +9,7 @@ class Pizza extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'price', 'vegetarian'];
+    protected $fillable = ['name', 'description', 'price', 'vegetarian', 'ingredient'];
 
     public function ingredients(){
         return $this->belongsToMany(Pizza::class);
